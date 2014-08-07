@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707051007) do
+ActiveRecord::Schema.define(version: 20140731033104) do
 
-  create_table "bookmarks", force: true do |t|
-    t.string   "name"
-    t.string   "description"
+  create_table "Bookmarks", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
 end
