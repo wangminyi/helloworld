@@ -1,0 +1,21 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand
+        i.fa.fa-home
+        |  主页
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-left
+        li = link_to "资源"
+        
+      ul.nav.navbar-nav.navbar-right
+        li = link_to "退出", destroy_user_session_path,method: :delete
+
+javascript:
+  $(function(){
+    
+  })              
