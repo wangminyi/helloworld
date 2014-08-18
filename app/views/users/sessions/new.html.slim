@@ -1,0 +1,27 @@
+.container-fluid
+  .row
+    .col-lg-4.col-lg-offset-4
+      .panel.panel-default.col6
+        .panel-heading
+          h3 登录一下先
+        .panel-body
+            .error.alert.alert-danger.dn
+            = simple_form_for(resource, remote: true, url: session_path(resource_class)) do |f|
+              .form-group
+                = f.input :email, required: false, autofocus: true, label: "邮箱"
+                = f.input :password, required: false, label: "密码"
+              br
+              = f.button :submit, "老子有号要登录", class: "btn btn-success"
+              a href="#{new_user_registration_path}" style="margin-left:15px;"
+                .btn.btn-primary 老子没号要注册
+
+javascript:
+  $(function(){
+    $("form").on("ajax:complete" ,function(e, xhr, state){
+      if(state == "error"){
+        $(".error").text(xhr.responseText).show();
+      }else{
+        location.href = "/index"
+      }
+    })
+  })

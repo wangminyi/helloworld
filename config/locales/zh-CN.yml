@@ -1,0 +1,10 @@
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 邮箱已被使用
+            password_confirmation:
+              confirmation: 两次密码不一致

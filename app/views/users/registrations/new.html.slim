@@ -1,0 +1,29 @@
+.container-fluid
+  .row
+    .col-lg-4.col-lg-offset-4
+      .panel.panel-default.col6
+        .panel-heading
+          h3 想登录，先注册
+        .panel-body
+            .error.alert.alert-danger.dn
+            = simple_form_for(resource, url: user_registration_path, html: {autocomplete: 'off'}) do |f|
+              .form-group
+                = f.input :email, required: true, autofocus: true, label: "邮箱"
+                = f.input :password,  required: true, label: "密码"
+                = f.input :password_confirmation, required: true, label: "确认密码", autocomplete: "off"
+              br
+              = f.button :submit, "有种就注册！", class: "btn btn-success"
+              a href="#{new_user_session_path}" style="margin-left:15px;"
+                .btn.btn-primary 老子没种不玩了
+
+javascript:
+  $(function(){
+    $("form").on("ajax:complete" ,function(e, xhr, state){
+      if(state == "error"){
+        $(".error").text(xhr.responseText).show();
+      }else{
+        alert("注册成功");
+        location.href = "/index";
+      }
+    });
+  })

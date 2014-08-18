@@ -31,11 +31,13 @@ gem 'slim-rails'
 gem 'devise', '3.2.4'
 gem 'bootstrap-sass'
 gem 'enumerize'
+gem 'simple_form',  '3.1.0.rc1'
 
 group :development do
   gem "better_errors"
   gem "pry"
   gem "binding_of_caller"
+  gem 'quiet_assets'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

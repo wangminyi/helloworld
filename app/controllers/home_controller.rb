@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    puts "hello"
+
   end
+
+  # def login
+  #   @user = User.new
+  # end
 end
