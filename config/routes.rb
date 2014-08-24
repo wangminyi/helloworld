@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'index' => 'home#index'
   get 'login' => 'home#login'
+  post 'send_message' => 'home#send_message'
   resources :bookmarks
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

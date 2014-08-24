@@ -2,3 +2,26 @@
 .dn {display: none;}
 .tcenter {text-align: center;}
 .mcenter {margin-left: auto;margin-right:auto;}
+
+.message-show.form-control{
+  overflow: auto;
+  height : 400px;
+  .content {
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+
+  .local {
+    text-align: right;
+  }
+  .remote {
+    text-align: left;
+  }
+}
+
+.message-input {
+  textarea {
+    resize : none;
+  }
+}

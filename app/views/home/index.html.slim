@@ -1,1 +1,42 @@
-| index          
+.panel.col-lg-6.col-lg-offset-3
+  .message-show.form-control
+  br
+  .message-input.form-group
+    textarea.form-control rows="2" placeholder="请输入聊天内容"
+
+javascript:
+  $(function(){
+    
+    $(".message-input textarea").on("keypress", function(e){
+      if (e.ctrlKey == false && e.keyCode == 13){
+        var content = $(".message-input textarea").val();
+        $(".message-input textarea").val("");
+        addLocalMessage(content);
+        $.ajax({
+          url: "/send_message",
+          data : {
+            message : content
+          },
+          type: "post",
+          success: function(ret){
+            addRemoteMessage(JSON.parse(ret.result).text);
+          }
+        });
+        return false;
+      }
+    })
+
+    window.addLocalMessage = function(text){
+      var panel = $(".message-show");
+      var content = $("<div class='content local'>" + text + "<div>");
+      panel.append(content);
+      panel.scrollTop(99999);
+    }
+
+    window.addRemoteMessage = function(text){
+      var panel = $(".message-show");
+      var content = $("<div class='content remote'>" + text + "<div>");
+      panel.append(content);
+      panel.scrollTop(99999);
+    }
+  });
