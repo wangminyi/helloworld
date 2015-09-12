@@ -1,4 +1,10 @@
 zh-CN:
+  user:
+    male: 男
+    female: 女
+  task:
+    image: 图片比较
+    click: 点击签到
   activerecord:
     errors:
       models:
