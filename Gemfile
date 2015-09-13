@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 
 gem 'slim-rails'
 gem 'devise', '3.2.4'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '3.1.1.1'
 gem 'enumerize'
 gem 'simple_form',  '3.1.0.rc1'
 gem 'rest-client'
@@ -49,7 +49,7 @@ gem 'unicorn'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
-
+gem 'capistrano-rbenv'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 

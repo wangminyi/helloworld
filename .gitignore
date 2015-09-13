@@ -20,3 +20,5 @@ db/migrate/test.rb
 
 db/schema.rb
 config/database.yml
+
+public/assets/*
