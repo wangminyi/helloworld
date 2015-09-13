@@ -59,3 +59,44 @@ server '139.196.37.164', user: 'root', roles: %w{app db web} #, my_property: :my
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+namespace :deploy do
+  desc "Start unicorn in production mode"
+  task :start do
+    on roles :app do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, "exec unicorn -c #{fetch(:unicorn_config)} -D #{fetch(:rackup_file)} -E deployment"
+        end
+      end
+    end
+  end
+
+  desc "Stop unicorn"
+  task :stop do
+    pid = fetch(:unicorn_pid)
+    on roles :app do
+      execute "if [ -f #{pid} ]; then kill -QUIT `cat #{pid}`; fi"
+    end
+  end
+
+  desc "Restart unicorn"
+  task :restart do
+    pid = fetch(:unicorn_pid)
+    on roles :app do
+      execute "if [ -f #{pid} ]; then kill -USR2 `cat #{pid}`; fi"
+    end
+  end
+
+  namespace :db do
+    desc "rake db:seed"
+    task :seed do
+      on roles :app do
+        within release_path do
+          with rails_env: fetch(:rails_env) do
+            execute :rake, "db:seed"
+          end
+        end
+      end
+    end
+  end
+end
