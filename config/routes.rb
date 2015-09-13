@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :bookmarks
+  # resources :bookmarks
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'index' => 'home#index'
   get 'login' => 'home#login'
   post 'send_message' => 'home#send_message'
-  resources :bookmarks
+  # resources :bookmarks
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
