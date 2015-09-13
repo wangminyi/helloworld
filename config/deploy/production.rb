@@ -7,6 +7,9 @@ server '139.196.37.164', user: 'root', roles: %w{app db web} #, my_property: :my
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
+set :stage,     :production
+set :rails_env, "production"
+
 set :unicorn_config,  "#{current_path}/config/unicorn.rb"
 set :unicorn_pid,     "#{current_path}/tmp/pids/unicorn.pid"
 set :rackup_file,     "#{current_path}/config.ru"
