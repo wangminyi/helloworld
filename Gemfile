@@ -2,10 +2,10 @@ source 'http://ruby.taobao.org/'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,13 +32,14 @@ gem 'devise', '3.2.4'
 gem 'bootstrap-sass'
 gem 'enumerize'
 gem 'simple_form',  '3.1.0.rc1'
-gem 'rest_client'
+gem 'rest-client'
 
 group :development do
   gem "better_errors"
   gem "pry"
   gem "binding_of_caller"
   gem 'quiet_assets'
+  gem 'irbtools', '2.0.1', require: 'binding.repl'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
