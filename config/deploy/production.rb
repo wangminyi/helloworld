@@ -17,9 +17,9 @@ set :unicorn_config,  "#{current_path}/config/unicorn.rb"
 set :unicorn_pid,     "#{current_path}/tmp/pids/unicorn.pid"
 set :rackup_file,     "#{current_path}/config.ru"
 
-set :linked_dirs, %w{
-  log tmp/cache tmp/pids
-}
+# set :linked_dirs, %w{
+#   log tmp/cache tmp/pids
+# }
 
 # role-based syntax
 # ==================
