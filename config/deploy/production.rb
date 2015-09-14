@@ -96,6 +96,8 @@ namespace :deploy do
     end
   end
 
+  after :publishing, :restart
+  
   namespace :db do
     desc "rake db:seed"
     task :seed do

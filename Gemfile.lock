@@ -39,7 +39,7 @@ GEM
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
-    capistrano (3.4.0)
+    capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
@@ -52,8 +52,6 @@ GEM
     capistrano-rbenv (2.0.3)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
-    capistrano-unicorn (0.1.10)
-      capistrano
     cd (1.0.1)
     clipboard (1.0.6)
     code (0.9.0)
@@ -252,9 +250,9 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (= 3.1.1.1)
+  capistrano (= 3.2.1)
   capistrano-rails
   capistrano-rbenv
-  capistrano-unicorn
   coffee-rails (~> 4.0.0)
   devise (= 3.2.4)
   enumerize
