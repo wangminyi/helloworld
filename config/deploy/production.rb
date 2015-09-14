@@ -17,6 +17,9 @@ set :unicorn_config,  "#{current_path}/config/unicorn.rb"
 set :unicorn_pid,     "#{current_path}/tmp/pids/unicorn.pid"
 set :rackup_file,     "#{current_path}/config.ru"
 
+set :linked_dirs, %w{
+  log tmp/cache tmp/pids
+}
 
 # role-based syntax
 # ==================
@@ -74,7 +77,7 @@ namespace :deploy do
     on roles :app do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, "exec unicorn -c #{fetch(:unicorn_config)} -D #{fetch(:rackup_file)} -E deployment"
+          execute :bundle, "exec unicorn -c #{fetch(:unicorn_config)} -D #{fetch(:rackup_file)} -E production"
         end
       end
     end
