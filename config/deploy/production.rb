@@ -10,6 +10,9 @@ server '139.196.37.164', user: 'root', roles: %w{app db web} #, my_property: :my
 set :stage,     :production
 set :rails_env, "production"
 
+set :rbenv_path,    "/root/.rbenv"
+set :current_path,  "#{deploy_to}/current"
+
 set :unicorn_config,  "#{current_path}/config/unicorn.rb"
 set :unicorn_pid,     "#{current_path}/tmp/pids/unicorn.pid"
 set :rackup_file,     "#{current_path}/config.ru"
@@ -100,6 +103,19 @@ namespace :deploy do
         within release_path do
           with rails_env: fetch(:rails_env) do
             execute :rake, "db:seed"
+          end
+        end
+      end
+    end
+  end
+
+  namespace :assets do 
+    desc "rake assets:cdn"
+    task :cdn do
+      on roles :app do
+        within release_path do 
+          with rails_env: fetch(:rails_env) do
+            execute :rake, "assets:cdn"
           end
         end
       end

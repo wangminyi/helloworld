@@ -1,4 +1,4 @@
-worker_processes 35
+worker_processes 5
 
 app_root = File.expand_path("../..", __FILE__)
 working_directory app_root
